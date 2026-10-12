@@ -1,6 +1,6 @@
 {
   "name": "@k44deusz/color-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Przeliczanie kolorów HEX, RGB, HSL, HSV i OKLCH oraz obliczanie kontrastu.",
   "type": "module",
   "exports": {
