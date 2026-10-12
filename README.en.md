@@ -28,7 +28,7 @@ if (color) {
 
 This parses selected formats rather than the complete CSS grammar: named colors, variables and Display P3 are not supported. OKLCH output is clipped to sRGB. Contrast includes compositing the alpha color against the selected background.
 
-The OKLab/OKLCH conversion follows [Björn Ottosson's model](https://bottosson.github.io/posts/oklab/); the model itself is not my invention.
+The OKLab/OKLCH conversion follows [Björn Ottosson's model](https://bottosson.github.io/posts/oklab/).
 
 Numeric inputs must be finite and within the range of their model. The library accepts OKLCH chroma from 0 to 4 and rejects higher values.
 

@@ -28,7 +28,7 @@ if (color) {
 
 To parser wybranych formatów, a nie całej składni CSS: nie odczytuje nazw kolorów, zmiennych ani Display P3. Wynik OKLCH jest ograniczany do zakresu sRGB. Kontrast uwzględnia nałożenie przezroczystego koloru na wskazane tło.
 
-Przeliczenie OKLab/OKLCH korzysta z [opisu modelu Björna Ottossona](https://bottosson.github.io/posts/oklab/); sam model nie jest moim wynalazkiem.
+Przeliczenie OKLab/OKLCH korzysta z [opisu modelu Björna Ottossona](https://bottosson.github.io/posts/oklab/).
 
 Wejścia liczbowe muszą być skończone i mieścić się w zakresie danego modelu. Biblioteka przyjmuje chromę OKLCH od 0 do 4; większą odrzuca.
 
