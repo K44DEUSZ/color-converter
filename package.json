@@ -1,6 +1,6 @@
 {
-  "name": "@k44deusz/color-utils",
-  "version": "1.0.1",
+  "name": "@k44deusz/color-converter",
+  "version": "1.0.0",
   "description": "Przeliczanie kolorów HEX, RGB, HSL, HSV i OKLCH oraz obliczanie kontrastu.",
   "type": "module",
   "exports": {
@@ -25,10 +25,10 @@
   "author": "Bartosz Golat",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/K44DEUSZ/color-utils.git"
+    "url": "git+https://github.com/K44DEUSZ/color-converter.git"
   },
   "bugs": {
-    "url": "https://github.com/K44DEUSZ/color-utils/issues"
+    "url": "https://github.com/K44DEUSZ/color-converter/issues"
   },
   "scripts": {
     "build": "tsc",

@@ -1,4 +1,4 @@
-# color-utils
+# color-converter
 
 [English version](README.en.md)
 
@@ -6,14 +6,14 @@ Jeśli masz kolor zapisany w HEX i potrzebujesz RGB, HSL, HSV albo OKLCH, te fun
 
 ## Jak użyć
 
-Pobierz paczkę wybranego wydania z [Releases](https://github.com/K44DEUSZ/color-utils/releases), a następnie zainstaluj ją w swoim projekcie:
+Pobierz paczkę wybranego wydania z [Releases](https://github.com/K44DEUSZ/color-converter/releases), a następnie zainstaluj ją w swoim projekcie:
 
 ```sh
-npm install ./k44deusz-color-utils-1.0.0.tgz
+npm install ./k44deusz-color-converter-1.0.0.tgz
 ```
 
 ```ts
-import { parseColor, formatValues, contrast } from "@k44deusz/color-utils";
+import { parseColor, formatValues, contrast } from "@k44deusz/color-converter";
 
 const color = parseColor("#CEFF49");
 if (color) {
@@ -42,7 +42,7 @@ npm run check
 npm test
 ```
 
-Po poprawnym sprawdzeniu zmian na `main` automat publikuje wydanie. Jeśli numer już istnieje, zwiększa ostatnią część wersji i zapisuje tę zmianę w Git. Paczki są dostępne na GitHubie; nie wymagają konta w rejestrze npm.
+Push na `main` uruchamia sprawdzenie kodu i testy. Wydanie publikuję osobno przez GitHub Actions, z numerem zapisanym w `package.json`. Automat nie zmienia tego numeru ani nie nadpisuje istniejącego wydania. Opublikowana paczka trafia do narzędzi na stronie po przejściu ich kontroli.
 
 ## Licencja
 
