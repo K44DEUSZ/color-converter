@@ -4,12 +4,14 @@
 
 Jeśli masz kolor zapisany w HEX i potrzebujesz RGB, HSL, HSV albo OKLCH, te funkcje pozwalają go przeliczyć. Biblioteka obsługuje też przezroczystość i oblicza kontrast z jednolitym szarym tłem, w tym białym i czarnym.
 
+Bieżące poprawki pozostają na wersji 1.0.0 i nie stanowią nowego wydania. Publiczna paczka 1.0.0 nie jest nadpisywana; nowe możliwości opisane poniżej dotyczą aktualnego kodu repozytorium. Aby je sprawdzić przed wydaniem, uruchom `npm ci`, `npm run build`, `npm pack` i zainstaluj uzyskany plik lokalnie. Changelog pozostaje w repozytorium i nie trafia do paczki.
+
 ## Jak użyć
 
 Pobierz paczkę wybranego wydania z [Releases](https://github.com/K44DEUSZ/color-converter/releases), a następnie zainstaluj ją w swoim projekcie:
 
 ```sh
-npm install ./k44deusz-color-converter-1.0.1.tgz
+npm install ./k44deusz-color-converter-1.0.0.tgz
 ```
 
 ```ts
