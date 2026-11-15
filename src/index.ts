@@ -22,7 +22,10 @@ export const clamp = (value: number, min = 0, max = 1) => {
   return Math.min(max, Math.max(min, value));
 };
 const round = (value: number, precision = 2) => Number(value.toFixed(precision));
-export const byte = (value: number) => Math.round(clamp(value / 255) * 255);
+export const byte = (value: number) => {
+  finite(value);
+  return Math.round(clamp(value / 255) * 255);
+};
 
 export function rgbaToHex({ r, g, b, a }: Rgba) {
   validateRgb(r, g, b, a);
@@ -46,23 +49,23 @@ export function hexToRgba(value: string): Rgba | null {
 
 export function rgbToHsl({ r, g, b }: Rgba): Hsl {
   validateRgb(r, g, b);
-  const rn = r / 255;
-  const gn = g / 255;
-  const bn = b / 255;
-  const max = Math.max(rn, gn, bn);
-  const min = Math.min(rn, gn, bn);
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
   const delta = max - min;
-  const l = (max + min) / 2;
+  const sum = max + min;
+  const l = sum / 510;
   let h = 0;
 
   if (delta) {
-    if (max === rn) h = 60 * (((gn - bn) / delta) % 6);
-    else if (max === gn) h = 60 * ((bn - rn) / delta + 2);
-    else h = 60 * ((rn - gn) / delta + 4);
+    if (max === r) h = 60 * (((g - b) / delta) % 6);
+    else if (max === g) h = 60 * ((b - r) / delta + 2);
+    else h = 60 * ((r - g) / delta + 4);
   }
 
   if (h < 0) h += 360;
-  const s = delta ? delta / (1 - Math.abs(2 * l - 1)) : 0;
+  // Avoid cancellation in 1 - abs(2*l - 1) close to black or white.
+  const denominator = sum <= 255 ? sum : 255 - max + (255 - min);
+  const s = delta ? delta / denominator : 0;
   return { h, s: clamp(s), l: clamp(l) };
 }
 
@@ -70,7 +73,7 @@ export function hslToRgb({ h, s, l }: Hsl, a = 1): Rgba {
   finite(h);
   validateUnit(s, l, a);
   const hue = ((h % 360) + 360) % 360;
-  const c = (1 - Math.abs(2 * l - 1)) * s;
+  const c = 2 * Math.min(l, 1 - l) * s;
   const x = c * (1 - Math.abs(((hue / 60) % 2) - 1));
   const m = l - c / 2;
   let [r, g, b] = [0, 0, 0];
@@ -135,6 +138,7 @@ export function hsvToRgb({ h, s, v }: Hsv, a = 1): Rgba {
 }
 
 export function srgbToLinear(value: number) {
+  finite(value);
   const x = clamp(value / 255);
   return x <= 0.04045 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4;
 }
